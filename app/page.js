@@ -1,14 +1,16 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import Form from "@/Components/Form"
+import Link from 'next/link'
 
 const Page = () => {
-  const [allUserData, setAllUserData] = useState({});
+  const [allUserData, setAllUserData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://mern-project-36gy.onrender.com/alluser");
+        const response = await axios.get("https://mern-project-backend-93y0.onrender.com/alluser");
         setAllUserData(response.data);
         console.log(response.data);
       } catch (error) {
@@ -19,18 +21,22 @@ const Page = () => {
     fetchData();
   }, []);
 
-  const hello = () => {
-    console.log("You pressed on Hello");
-  };
 
   return (
     <>
-      <div onClick={hello}>Hello</div>
-      {/* Display specific properties of the user data */}
-      <div>Country: {allUserData.country_name}</div>
-      <div>City: {allUserData.city}</div>
-      <div>Region: {allUserData.region}</div>
-      {/* Add more properties as needed */}
+      <Form/>
+      
+      <ul>
+        {allUserData.map(user => (
+          <li key={user._id}>
+            Username: {user.username}, Name: {user.name}, Passkey: {user.passkey} , Email : {user.mail}
+          </li>
+        ))}
+      </ul>
+
+      <Link href="/Login">Login Now.</Link>
+      <Link href="/UploadAudio">Upload Data Here</Link>
+
     </>
   );
 };
