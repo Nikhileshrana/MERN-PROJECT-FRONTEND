@@ -25,11 +25,11 @@ const Page = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://mern-project-backend-93y0.onrender.com/alluser");
+      const response = await axios.get("https://weak-worm-pajamas.cyclic.app/alluser");
       setAllUserData(response.data);
+9
 
-
-      const { username, name, mail } = parseCookies();
+      const { username, name, mail } = await parseCookies();
 
       if (username && name && mail) {
         setLoginStatus("Logged In");

@@ -4,7 +4,7 @@ import React from 'react';
 const page = () => {
   return (
     <>
-    <form action='https://mern-project-backend-93y0.onrender.com/login' method='post'>
+    <form action='https://weak-worm-pajamas.cyclic.app/login' method='post'>
         <label for="my_username">Enter Username</label>
         <input type='text' name='my_username' id='my_username'/>
 

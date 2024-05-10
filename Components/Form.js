@@ -4,7 +4,7 @@ const Form = () => {
   return (
     <>
     <div>Sign-Up</div>
-    <form action='https://mern-project-backend-93y0.onrender.com/createuser' method='post'>
+    <form action='https://weak-worm-pajamas.cyclic.app/createuser' method='post'>
     {/* <form action='https://mern-project-backend-93y0.onrender.com/createuser' method='post'> */}
         <label for="usernamee"></label>
         <input id='username' name='username' type='text' placeholder='Eg.Astrodude'/>
