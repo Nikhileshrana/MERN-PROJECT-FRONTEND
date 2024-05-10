@@ -35,8 +35,6 @@ const Page = () => {
       </ul>
 
       <Link href="/Login">Login Now.</Link>
-      <Link href="/UploadAudio">Upload Data Here</Link>
-
     </>
   );
 };
