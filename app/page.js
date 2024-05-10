@@ -25,7 +25,7 @@ const Page = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/alluser");
+      const response = await axios.get("https://mern-project-backend-93y0.onrender.com/alluser");
       setAllUserData(response.data);
 
 
