@@ -30,6 +30,7 @@ const Page = () => {
 
 
       const { username, name, mail } = parseCookies();
+      console.log(parseCookies().username);
 
       if (username && name && mail) {
         setLoginStatus("Logged In");
