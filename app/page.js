@@ -47,10 +47,8 @@ const Page = () => {
         ))}
       </ul>
 
-      
-      {loginStatus !== "Logged In" && (
+
         <Link href="/Login">Login Now.</Link>
-      )}
     </>
   );
 };
