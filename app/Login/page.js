@@ -7,8 +7,7 @@ const page = () => {
 
   const submitform = async (e) => {
     e.preventDefault();
-    // window.location.href = '/';
-    const loginresponse = await axios.post("https://weak-worm-pajamas.cyclic.app/login");
+    const loginresponse = await axios.get("https://weak-worm-pajamas.cyclic.app/login");
     console.log(loginresponse.data);
     setlogindata(loginresponse.data);
   }
