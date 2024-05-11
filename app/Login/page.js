@@ -2,9 +2,15 @@
 import React from 'react';
 
 const page = () => {
+
+  const submitform = (e) => {
+    e.preventDefault();
+    window.location.href = 'https://weak-worm-pajamas.cyclic.app';
+  }
+
   return (
     <>
-    <form action='https://weak-worm-pajamas.cyclic.app/login' method='post'>
+    <form onSubmit={submitform} action='https://weak-worm-pajamas.cyclic.app/login' method='post'>
         <label for="my_username">Enter Username</label>
         <input type='text' name='my_username' id='my_username'/>
 
