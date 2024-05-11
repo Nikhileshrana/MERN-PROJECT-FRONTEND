@@ -5,7 +5,7 @@ const page = () => {
 
   const submitform = (e) => {
     e.preventDefault();
-    window.location.href = 'https://weak-worm-pajamas.cyclic.app';
+    window.location.href = '/';
   }
 
   return (
