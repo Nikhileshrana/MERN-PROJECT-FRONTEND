@@ -23,13 +23,6 @@ const Page = () => {
       const response = await axios.get("https://weak-worm-pajamas.cyclic.app/alluser");
       setAllUserData(response.data);
 
-      
-
-      const { username, name, mail } = await parseCookies();
-
-      if (username && name && mail) {
-        setLoginStatus("Logged In");
-      }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
