@@ -18,7 +18,7 @@ const Form = () => {
         <label for="passkey"></label>
         <input id='passkey' name='passkey' type='number' typeof='password' placeholder='Secret PIN'/>
 
-        <button type='submit'></button>
+        <button type='submit'>Submit Now.</button>
     </form>
     </>
   )
