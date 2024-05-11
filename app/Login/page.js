@@ -8,14 +8,14 @@ const page = () => {
   const submitform = async (e) => {
     e.preventDefault();
     // window.location.href = '/';
-    const loginresponse = await axios.post("https://weak-worm-pajamas.cyclic.app/login/");
+    const loginresponse = await axios.post("https://weak-worm-pajamas.cyclic.app/login");
     console.log(loginresponse.data);
     setlogindata(loginresponse.data);
   }
 
   return (
     <>
-    <form onSubmit={submitform} action='https://weak-worm-pajamas.cyclic.app/login/' method='post'>
+    <form onSubmit={submitform} action='https://weak-worm-pajamas.cyclic.app/login' method='post'>
         <label for="my_username">Enter Username</label>
         <input type='text' name='my_username' id='my_username'/>
 
