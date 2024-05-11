@@ -9,11 +9,6 @@ import { destroyCookie, parseCookies } from 'nookies';
 
 
 
-
-
-
-
-
 const Page = () => {
   const [allUserData, setAllUserData] = useState([]);
   const [logindata, setLogindata] = useState("");
@@ -40,13 +35,6 @@ const Page = () => {
     }
   };
 
-  const destroycookies = () => {
-    destroyCookie(null, 'username');
-    destroyCookie(null, 'name');
-    destroyCookie(null, 'mail');
-    setLoginStatus("Logged Out");
-  };
-
   return (
     <>
       <Form/>
@@ -59,22 +47,7 @@ const Page = () => {
         ))}
       </ul>
 
-      {loginStatus === "Logged In" ? (
-        <div>
-          <h2>User Information:</h2>
-          <p>Username: {parseCookies().username}</p>
-          <p>Name: {parseCookies().name}</p>
-          <p>Email: {parseCookies().mail}</p>
-        </div>
-      ) : (
-        <p>You are not logged in.</p>
-      )}
-
-
-      {loginStatus === "Logged In" &&(
-        <button onClick={destroycookies}>Logout</button>
-      )}
-
+      
       {loginStatus !== "Logged In" && (
         <Link href="/Login">Login Now.</Link>
       )}
