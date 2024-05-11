@@ -28,9 +28,7 @@ const Page = () => {
       const response = await axios.get("https://weak-worm-pajamas.cyclic.app/alluser");
       setAllUserData(response.data);
 
-      const loginresponse = await axios.get("https://weak-worm-pajamas.cyclic.app/login");
-      console.log(loginresponse.data);
-      setLogindata(loginresponse.data);
+      
 
       const { username, name, mail } = await parseCookies();
 
@@ -71,13 +69,6 @@ const Page = () => {
       ) : (
         <p>You are not logged in.</p>
       )}
-
-      <h2>{logindata}</h2>
-
-      {logindata.username}
-      {logindata.name}
-      {logindata.mail}
-      {logindata.passkey}
 
 
       {loginStatus === "Logged In" &&(

@@ -2,10 +2,14 @@
 import React from 'react';
 
 const page = () => {
+  const [logindata, setlogindata] = useState("");
 
-  const submitform = (e) => {
+  const submitform = async (e) => {
     e.preventDefault();
-    window.location.href = '/';
+    // window.location.href = '/';
+    const loginresponse = await axios.get("https://weak-worm-pajamas.cyclic.app/login");
+    console.log(loginresponse.data);
+    setlogindata(loginresponse.data);
   }
 
   return (
@@ -19,6 +23,9 @@ const page = () => {
     
         <button type='submit'>Submit Now</button>
     </form>
+
+    <h2>Data After Login</h2>
+    {logindata.username}
     </>
   )
 }
