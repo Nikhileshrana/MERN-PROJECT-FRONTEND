@@ -22,8 +22,10 @@ const MyForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            window.location.href = "/";
+            
             const response = await axios.post('https://mern-backend-nikhileshrana-9ace3f25.koyeb.app/createuser', formData);
+            console.log('Form submitted:', response.data);
+            window.location.href = "/";
 
         } catch (error) {
             console.error('Error submitting form:', error);
