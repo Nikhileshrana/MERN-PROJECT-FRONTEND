@@ -1,49 +1,49 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import Form from "@/Components/Form";
 import Link from 'next/link';
-import { destroyCookie, parseCookies } from 'nookies';
+import Cookies from 'js-cookie';
+import Box from "@/Components/Box";
 
+const page = () => {
 
-
-
-
-const Page = () => {
-  const [allUserData, setAllUserData] = useState([]);
-  const [logindata, setLogindata] = useState("");
-  const [loginStatus, setLoginStatus] = useState("Login");
+  const [heading, setHeading] = useState("Nikhilesh Rana's Panel");
+  const [subheading, setSubheading] = useState("Welcome to my panel!");
+  const [login, setLogin] = useState(false);
+  const [block3, setBlock3] = useState(<Link href="Login">Login</Link>);
+  const [block4, setBlock4] = useState("Created by Nikhilesh Rana"); 
+  
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("https://weak-worm-pajamas.cyclic.app/alluser");
-      setAllUserData(response.data);
-
-    } catch (error) {
-      console.error("Error fetching data:", error);
+    if(Cookies.get('username'))
+    {
+      setHeading("Welcome "+Cookies.get('username'));
+      setSubheading("You are logged in as "+Cookies.get('username'));
+      setLogin(true);
+      setBlock3(<Link href="Alldata">View All Data</Link>);
+      setBlock4(<Link href="/" onClick={()=>{
+          Cookies.remove('username');
+          Cookies.remove('mail');
+          Cookies.remove('name');
+          Cookies.remove('passkey');
+          window.location.href = '/';
+      }}>Logout</Link>);
     }
-  };
+  },[]);
+
+
 
   return (
     <>
-      <Form/>
-      
-      <ul>
-        {allUserData.map(user => (
-          <li key={user._id}>
-            Username: {user.username}, Name: {user.name}, Passkey: {user.passkey}, Email: {user.mail}
-          </li>
-        ))}
-      </ul>
+      <Box heading={heading} subheading={subheading} login={login} block3={block3} block4={block4}/>
 
-
-        <Link href="/Login">Login Now.</Link>
+      <div className='darkanimback'></div>
+      <div className='darkanimback2'></div>
+      <div className='darkanimback3'></div>
+      <div className='darkanimback4'></div>
+      <div className='darkanimback5'></div>
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default page

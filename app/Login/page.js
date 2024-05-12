@@ -1,33 +1,67 @@
-"use client";
-import React, { useState } from 'react';
-import axios from 'axios';
+"use client"
+import React, { useEffect } from 'react';
+import axios from "axios";
+import { useState } from 'react';
+import Link from 'next/link';
+import Box from "@/Components/Box";
+import Cookies from 'js-cookie';
 
-const page = () => {
-  const [logindata, setlogindata] = useState("");
 
-  const submitform = async (e) => {
-    e.preventDefault();
-    const loginresponse = await axios.get("https://weak-worm-pajamas.cyclic.app/login");
-    console.log(loginresponse.data);
-    setlogindata(loginresponse.data);
-  }
 
-  return (
-    <>
-    <form onSubmit={submitform} action='https://weak-worm-pajamas.cyclic.app/login' method='post'>
-        <label for="my_username">Enter Username</label>
-        <input type='text' name='my_username' id='my_username'/>
 
-        <label for="my_passkey">Enter Passkey</label>
-        <input type='password' name='my_passkey' id='my_passkey'/>
-    
-        <button type='submit'>Submit Now</button>
-    </form>
 
-    <h2>Data After Login</h2>
-    {logindata.username}
-    </>
-  )
+const Page = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [userdata, setUserData] = useState({}); // Initialize as object instead of array
+
+    const formSubmit = async(e) => {
+        e.preventDefault();
+        const response = await axios.post("http://localhost:3000/login",{
+            user_username: username,
+            user_password: password
+        });
+        console.log(response.data);
+        setUserData(response.data);
+
+        Cookies.set('username', response.data.username);
+        Cookies.set('mail', response.data.mail);
+        Cookies.set('name', response.data.name);
+        Cookies.set('passkey', response.data.passkey);
+        window.location.href = "/";
+    }
+
+    useEffect(() => {
+        // Print cookies after they have been set
+        console.log("Username Cookie:", Cookies.get('username'));
+        console.log("Mail Cookie:", Cookies.get('mail'));
+        console.log("Name Cookie:", Cookies.get('name'));
+        console.log("Passkey Cookie:", Cookies.get('passkey'));
+    }, [userdata]); // Run the effect whenever userdata changes
+
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value);
+    }
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+    return (
+        <>
+            <Box heading={"Login"} subheading={"Enter Credentials to Continue"} block3={
+                <form onSubmit={formSubmit}>
+                    <input onChange={handleUsernameChange} type="text" placeholder="Username" />
+                    <input onChange={handlePasswordChange} type="password" placeholder="Password" />
+                    <button type="submit">Login</button>
+                </form>
+            } block4={<Link href="Register">Don't have an account? Register here.</Link>}></Box>
+            <div className='darkanimback'></div>
+            <div className='darkanimback2'></div>
+            <div className='darkanimback3'></div>
+            <div className='darkanimback4'></div>
+            <div className='darkanimback5'></div>
+        </>
+    )
 }
 
-export default page
+export default Page;
