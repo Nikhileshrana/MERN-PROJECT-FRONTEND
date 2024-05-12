@@ -17,7 +17,7 @@ const Page = () => {
 
     const formSubmit = async(e) => {
         e.preventDefault();
-        const response = await axios.post("https://semantic-nerita-nikhileshrana-a6770589.koyeb.app/login",{
+        const response = await axios.post("https://mern-backend-nikhileshrana-9ace3f25.koyeb.app/login",{
             user_username: username,
             user_password: password
         });

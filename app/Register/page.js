@@ -23,7 +23,7 @@ const MyForm = () => {
         e.preventDefault();
         try {
             window.location.href = "/";
-            const response = await axios.post('https://semantic-nerita-nikhileshrana-a6770589.koyeb.app/createuser', formData);
+            const response = await axios.post('https://mern-backend-nikhileshrana-9ace3f25.koyeb.app/createuser', formData);
 
         } catch (error) {
             console.error('Error submitting form:', error);

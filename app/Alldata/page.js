@@ -11,7 +11,7 @@ const page = () => {
     const apifetch=async()=>{
         try
         {
-          const response = await axios.get("https://semantic-nerita-nikhileshrana-a6770589.koyeb.app/alluser");
+          const response = await axios.get("https://mern-backend-nikhileshrana-9ace3f25.koyeb.app/alluser");
           console.log(response.data);
           setusersdata(response.data);
         }
