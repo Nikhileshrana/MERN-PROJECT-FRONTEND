@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import axios from "axios";
+import cors from 'cors';
 import Link from 'next/link';
 import { parseCookies } from 'nookies';
 import { destroyAllCookies } from 'nookies';
@@ -10,7 +11,7 @@ const page = () => {
     const apifetch=async()=>{
         try
         {
-          const response = await axios.get("http://localhost:3000/alluser");
+          const response = await axios.get("https://semantic-nerita-nikhileshrana-a6770589.koyeb.app/alluser");
           console.log(response.data);
           setusersdata(response.data);
         }
