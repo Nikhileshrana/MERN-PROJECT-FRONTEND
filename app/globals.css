@@ -232,4 +232,5 @@ body
 #shopify-section-template--20699447230499__featured_collection>div>div
 {
     border:2px red solid;
+    display:none;
 }
