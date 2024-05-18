@@ -229,23 +229,7 @@ body
 
 
 
-
-@media (max-width: 360px) {
-    .slider-buttons > :nth-child(1) {
-      position: absolute;
-      right: 95%;
-      bottom: 3%;
-      height: 100%;
-      border:3px red solid;
-    }
-    .slider-buttons > button > svg {
-      height: 10%;
-      width: auto;
-    }
-    .slider-buttons > :nth-child(3) {
-      position: absolute;
-      left: 95%;
-      bottom: 3%;
-      height: 100%;
-    }
-  }
+#shopify-section-template--20699447230499__featured_collection>div>div
+{
+    border:2px red solid;
+}
