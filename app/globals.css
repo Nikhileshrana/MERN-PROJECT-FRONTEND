@@ -236,7 +236,7 @@ body
       right: 95%;
       bottom: 3%;
       height: 100%;
-      border:3px red solid
+      border:3px red solid;
     }
     .slider-buttons > button > svg {
       height: 10%;
